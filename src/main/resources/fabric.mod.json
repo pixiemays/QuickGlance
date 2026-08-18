@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "quickglance",
+  "version": "${version}",
+  "name": "QuickGlance",
+  "description": "A minimalist HUD that allows you to see resources and fuel inside the furnaces without opening them.",
+  "authors": ["pixiemays"],
+  "contact": {},
+  "license": "GPL-3.0",
+  "icon": "assets/quickglance/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "org.pixiemays.quickglance.Quickglance"
+      }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "org.pixiemays.quickglance.client.QuickglanceClient"
+      }
+    ],
+    "modmenu": [
+      {
+        "adapter": "kotlin",
+        "value": "org.pixiemays.quickglance.client.QuickglanceModMenu"
+      }
+    ]
+  },
+  "mixins": [
+    "quickglance.mixins.json",
+    {
+      "config": "quickglance.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${kotlin_loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  },
+  "suggests": {
+    "modmenu": ">=20.0.0-alpha.1"
+  }
+}

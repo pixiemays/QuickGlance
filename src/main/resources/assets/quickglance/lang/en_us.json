@@ -1,0 +1,18 @@
+{
+  "quickglance.midnightconfig.title": "QuickGlance Settings",
+
+  "quickglance.midnightconfig.category.animation": "Animation & Timing",
+  "quickglance.midnightconfig.category.position": "HUD Position",
+
+  "quickglance.midnightconfig.animDurationMs": "Animation Duration (ms)",
+  "quickglance.midnightconfig.animDurationMs.tooltip": "The speed at which the tooltip appears and disappears.",
+
+  "quickglance.midnightconfig.gracePeriodMs": "Hide Grace Period (ms)",
+  "quickglance.midnightconfig.gracePeriodMs.tooltip": "The time the interface waits before closing.\nUseful for preventing flickering when shifting your gaze between stoves.",
+
+  "quickglance.midnightconfig.offsetX": "X Offset",
+  "quickglance.midnightconfig.offsetX.tooltip": "Horizontal offset from the center of the screen.",
+
+  "quickglance.midnightconfig.offsetY": "Y Offset",
+  "quickglance.midnightconfig.offsetY.tooltip": "Vertical offset from the center of the screen."
+}

@@ -1,0 +1,18 @@
+{
+  "quickglance.midnightconfig.title": "Настройки QuickGlance",
+
+  "quickglance.midnightconfig.category.animation": "Анимация и Задержки",
+  "quickglance.midnightconfig.category.position": "Расположение на экране",
+
+  "quickglance.midnightconfig.animDurationMs": "Длительность анимации (мс)",
+  "quickglance.midnightconfig.animDurationMs.tooltip": "Скорость появляения и исчезновения подсказки.",
+
+  "quickglance.midnightconfig.gracePeriodMs": "Задержка скрытия (мс)",
+  "quickglance.midnightconfig.gracePeriodMs.tooltip": "Время, которое интерфейс ждет перед закрытием.\nПолезно для предотвращения мигания при переводе взгляда между печками.",
+
+  "quickglance.midnightconfig.offsetX": "Смещение по оси X",
+  "quickglance.midnightconfig.offsetX.tooltip": "Смещение интерфейса по горизонтали от центра экрана.",
+
+  "quickglance.midnightconfig.offsetY": "Смещение по оси Y",
+  "quickglance.midnightconfig.offsetY.tooltip": "Смещение интерфейса по вертикали от центра экрана."
+}
