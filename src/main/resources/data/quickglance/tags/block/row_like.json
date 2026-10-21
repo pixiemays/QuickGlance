@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:brewing_stand",
+    "minecraft:chiseled_bookshelf",
+    "minecraft:jukebox",
+    "minecraft:dispenser",
+    "minecraft:dropper",
+    "minecraft:hopper"
+  ]
+}

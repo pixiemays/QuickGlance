@@ -1,3 +1,4 @@
+//? if fabric {
 package org.pixiemays.quickglance.client
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory
@@ -11,3 +12,4 @@ class QuickglanceModMenu: ModMenuApi {
         }
     }
 }
+//? }

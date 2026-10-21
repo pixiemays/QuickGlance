@@ -1,5 +1,30 @@
-# Project exclude paths
-/.gradle/
-/build/
-/build/classes/kotlin/client/
-/build/classes/kotlin/main/
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# Stonecutter & Multi-version
+versions/
+stonecutter.gradle.kts.old
+
+# Minecraft runs & logs
+run/
+logs/
+crash-reports/
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# IDE - VS Code
+.vscode/
+
+# Kotlin
+.kotlin/
+
+# OS generated files
+.DS_Store
+Thumbs.db

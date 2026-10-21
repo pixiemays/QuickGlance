@@ -1,0 +1,25 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="GPL-3.0"
+
+[[mods]]
+modId="${id}"
+version="${version}"
+displayName="${name}"
+description="A minimalist HUD that allows you to see resources and fuel inside the furnaces without opening them."
+authors="pixiemays"
+iconFile="assets/quickglance/icon.png"
+
+[[dependencies.${id}]]
+modId="neoforge"
+type="required"
+versionRange="[1,)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${id}]]
+modId="minecraft"
+type="required"
+versionRange="${minecraft}"
+ordering="NONE"
+side="BOTH"
