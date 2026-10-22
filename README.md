@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="https://cdn.modrinth.com/data/GSDqwXdk/db8d854f518848de2b092674c4e639bef3ece4b3_96.webp" alt="QuickGlance Logo" width="96" height="96" />
+
 # QuickGlance
 
 **A sleek, minimalist HUD mod for Minecraft that displays container contents in real-time right where you look — without opening the GUI.**
