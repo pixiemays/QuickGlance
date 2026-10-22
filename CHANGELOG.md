@@ -17,7 +17,7 @@ All notable changes to this project will be documented in this file.
   - `CampfireContainerDisplay`: compact 44x44 2x2 layout.
   - `RowContainerDisplay`: dynamic width/height supporting single rows (1–9 slots) and wrapped grids (>9 slots).
 - **Configuration UI**: MidnightLib integration with ModMenu (Fabric) and Mods menu (NeoForge).
-- **Datapack documentation**: [`DATAPACKS.md`](file:///c:/Users/mays/IdeaProjects/QuickGlance/DATAPACKS.md) in English and Russian.
+- **Datapack documentation**: [DATAPACKS.md](https://github.com/pixiemays/QuickGlance/blob/master/DATAPACKS.md) in English and Russian.
 
 ### Changed
 - Network payload modernized to `FurnaceSyncPayload` carrying generic `items: List<ItemStack>` and `displayType: String`.
