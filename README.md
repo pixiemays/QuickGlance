@@ -11,6 +11,8 @@
 [![GitHub Release](https://img.shields.io/github/v/release/pixiemays/QuickGlance?color=7289DA&logo=github)](https://github.com/pixiemays/QuickGlance/releases)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](LICENSE.txt)
 
+**English** • [Русский](README_RU.md)
+
 [Features](#features) • [Compatibility](#compatibility) • [Installation](#installation) • [Configuration](#configuration) • [Datapacks](#datapack-support) • [Building](#building-from-source)
 
 </div>
