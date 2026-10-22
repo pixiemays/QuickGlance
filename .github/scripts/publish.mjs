@@ -5,6 +5,7 @@ const PLATFORM_ARG = process.argv.find(arg => arg.startsWith('--platform='))?.sp
   || (process.argv.includes('--platform') ? process.argv[process.argv.indexOf('--platform') + 1] : 'all');
 
 const MODRINTH_TOKEN = process.env.MODRINTH_TOKEN || '';
+const MODRINTH_PROJECT_ID = process.env.MODRINTH_PROJECT_ID || 'GSDqwXdk';
 const CURSEFORGE_TOKEN = process.env.CURSEFORGE_TOKEN || '';
 const CURSEFORGE_PROJECT_ID = process.env.CURSEFORGE_PROJECT_ID || '1658041';
 
@@ -109,7 +110,7 @@ async function publishModrinth(target) {
     loaders: target.modrinth.loaders,
     featured: false,
     status: 'listed',
-    project_id: 'quickglance',
+    project_id: MODRINTH_PROJECT_ID,
     file_parts: ['file_0'],
     primary_file: 'file_0',
   };
