@@ -21,19 +21,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Java 25 (Temurin)
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'temurin'
-          java-version: '25'
-
-      - name: Set up Java 21 & 17 toolchains
+      - name: Set up Java 17 & 21 toolchains
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: |
-            21
             17
+            21
+
+      - name: Set up Java 25 (Temurin - Primary)
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '25'
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
@@ -61,6 +61,10 @@ jobs:
 
     permissions:
       contents: write
+
+    env:
+      MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
+      CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
 
     steps:
       - name: Checkout repository
