@@ -54,17 +54,13 @@ jobs:
           path: build/libs/*.jar
 
   release:
-    name: Publish Release (GitHub, Modrinth, CurseForge)
+    name: GitHub Release
     needs: build
     if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish == true)
     runs-on: ubuntu-latest
 
     permissions:
       contents: write
-
-    env:
-      MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
-      CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
 
     steps:
       - name: Checkout repository
@@ -76,112 +72,67 @@ jobs:
           name: quickglance-jars
           path: build/libs
 
+      - name: Extract Changelog
+        run: |
+          node -e "
+            const fs = require('fs');
+            const full = fs.readFileSync('CHANGELOG.md', 'utf-8');
+            const start = full.indexOf('## [1.1.0]');
+            const end = start !== -1 ? full.indexOf('---', start) : -1;
+            const log = start !== -1 && end !== -1 ? full.slice(start, end).trim() : full.trim();
+            fs.writeFileSync('RELEASE_CHANGELOG.md', log);
+          "
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           files: build/libs/*.jar
-          generate_release_notes: true
+          body_path: RELEASE_CHANGELOG.md
           draft: false
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish to Modrinth & CurseForge (Fabric 26.3)
-        uses: ThexXTURBOXx/mc-publish@dev
-        if: env.MODRINTH_TOKEN != '' || env.CURSEFORGE_TOKEN != ''
-        with:
-          modrinth-id: quickglance
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: ${{ secrets.CURSEFORGE_PROJECT_ID }}
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          files: build/libs/quickglance-fabric-*26.3.jar
-          loaders: fabric,quilt
-          game-versions: 26.3
-          java: 25
-          environments: |
-            client
-            server
-          curseforge-environments: |
-            client
-            server
-          fail-mode: warn
+  publish-modrinth:
+    name: Publish to Modrinth
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish == true)
+    runs-on: ubuntu-latest
 
-      - name: Publish to Modrinth & CurseForge (NeoForge 26.3)
-        uses: ThexXTURBOXx/mc-publish@dev
-        if: env.MODRINTH_TOKEN != '' || env.CURSEFORGE_TOKEN != ''
-        with:
-          modrinth-id: quickglance
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: ${{ secrets.CURSEFORGE_PROJECT_ID }}
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          files: build/libs/quickglance-neoforge-*26.3.jar
-          loaders: neoforge
-          game-versions: 26.3
-          java: 25
-          environments: |
-            client
-            server
-          curseforge-environments: |
-            client
-            server
-          fail-mode: warn
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Publish to Modrinth & CurseForge (Fabric 1.21.1)
-        uses: ThexXTURBOXx/mc-publish@dev
-        if: env.MODRINTH_TOKEN != '' || env.CURSEFORGE_TOKEN != ''
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
         with:
-          modrinth-id: quickglance
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: ${{ secrets.CURSEFORGE_PROJECT_ID }}
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          files: build/libs/quickglance-fabric-*1.21.1.jar
-          loaders: fabric,quilt
-          game-versions: 1.21,1.21.1
-          java: 21
-          environments: |
-            client
-            server
-          curseforge-environments: |
-            client
-            server
-          fail-mode: warn
+          name: quickglance-jars
+          path: build/libs
 
-      - name: Publish to Modrinth & CurseForge (NeoForge 1.21.1)
-        uses: ThexXTURBOXx/mc-publish@dev
-        if: env.MODRINTH_TOKEN != '' || env.CURSEFORGE_TOKEN != ''
-        with:
-          modrinth-id: quickglance
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: ${{ secrets.CURSEFORGE_PROJECT_ID }}
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          files: build/libs/quickglance-neoforge-*1.21.1.jar
-          loaders: neoforge
-          game-versions: 1.21,1.21.1
-          java: 21
-          environments: |
-            client
-            server
-          curseforge-environments: |
-            client
-            server
-          fail-mode: warn
+      - name: Publish all JARs to Modrinth
+        run: node .github/scripts/publish.mjs --platform=modrinth
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
 
-      - name: Publish to Modrinth & CurseForge (Fabric 1.20.1)
-        uses: ThexXTURBOXx/mc-publish@dev
-        if: env.MODRINTH_TOKEN != '' || env.CURSEFORGE_TOKEN != ''
+  publish-curseforge:
+    name: Publish to CurseForge
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/v') || (github.event_name == 'workflow_dispatch' && inputs.publish == true)
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@v4
         with:
-          modrinth-id: quickglance
-          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
-          curseforge-id: ${{ secrets.CURSEFORGE_PROJECT_ID }}
-          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
-          files: build/libs/quickglance-fabric-*1.20.1.jar
-          loaders: fabric,quilt
-          game-versions: 1.20.1
-          java: 17
-          environments: |
-            client
-            server
-          curseforge-environments: |
-            client
-            server
-          fail-mode: warn
+          name: quickglance-jars
+          path: build/libs
+
+      - name: Publish all JARs to CurseForge
+        run: node .github/scripts/publish.mjs --platform=curseforge
+        env:
+          CURSEFORGE_TOKEN: ${{ secrets.CURSEFORGE_TOKEN }}
+          CURSEFORGE_PROJECT_ID: ${{ secrets.CURSEFORGE_PROJECT_ID }}
+
