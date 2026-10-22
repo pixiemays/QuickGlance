@@ -1,6 +1,6 @@
 <div align="center">
 
-# QuickGlance 🔍
+# QuickGlance
 
 **A sleek, minimalist HUD mod for Minecraft that displays container contents in real-time right where you look — without opening the GUI.**
 
@@ -15,33 +15,33 @@
 
 ---
 
-## ✨ Features
+## Features
 
 - **Fluid Animations**: Smooth cubic ease-out fade-in/out transitions when glancing at containers.
 - **Anti-Flicker Grace Period**: Configurable look-away grace window prevents jitter when your crosshair quickly sweeps past blocks.
 - **Adaptive Layouts**:
-  - 🔥 **Furnace-like**: Input, fuel, and smelting result (Furnace, Blast Furnace, Smoker).
-  - 🏕️ **Campfire-like**: 2×2 grid layout displaying all four cooking slots (Campfire, Soul Campfire).
-  - 📦 **Row-like**: Auto-scaling horizontal rows (1–9 items) and compact wrapped grids for larger containers (Brewing Stand, Hopper, Dispenser, Dropper, Jukebox, Chiseled Bookshelf, and modded vaults).
+  - **Furnace-like**: Input, fuel, and smelting result (Furnace, Blast Furnace, Smoker).
+  - **Campfire-like**: 2×2 grid layout displaying all four cooking slots (Campfire, Soul Campfire).
+  - **Row-like**: Auto-scaling horizontal rows (1–9 items) and compact wrapped grids for larger containers (Brewing Stand, Hopper, Dispenser, Dropper, Jukebox, Chiseled Bookshelf, and modded vaults).
 - **Multi-Loader Support**: Works on Fabric, Quilt, and NeoForge across multiple Minecraft releases.
 - **In-Game Configuration**: Full MidnightLib GUI integration accessible directly from ModMenu (Fabric) or the Mods menu (NeoForge).
 - **Datapack Extensible**: Add custom modded blocks or redefine existing container layouts using simple vanilla JSON tags.
 
 ---
 
-## 🎮 Compatibility
+## Compatibility
 
 | Minecraft Version | Fabric | Quilt | NeoForge |
 |---|:---:|:---:|:---:|
-| **26.3** | ✅ | ✅ | ✅ |
-| **1.21 / 1.21.1** | ✅ | ✅ | ✅ |
-| **1.20.1** | ✅ | ✅ | — |
+| **26.3** | Yes | Yes | Yes |
+| **1.21 / 1.21.1** | Yes | Yes | Yes |
+| **1.20.1** | Yes | Yes | — |
 
 > **Requirement**: QuickGlance is designed for both **client and server**. When installed on the server, inventory synchronization packets are delivered with minimal bandwidth. Singleplayer works out of the box.
 
 ---
 
-## 📥 Installation
+## Installation
 
 1. Make sure you have your preferred mod loader installed ([Fabric Loader](https://fabricmc.net/), [Quilt](https://quiltmc.org/), or [NeoForge](https://neoforged.net/)).
 2. For Fabric/Quilt, ensure [Fabric API](https://modrinth.com/mod/fabric-api) / [Quilted Fabric API](https://modrinth.com/mod/qsl) is present.
@@ -53,7 +53,7 @@
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 Press the Mod Settings button in **ModMenu** (Fabric) or the **Mods** list (NeoForge), or edit `config/quickglance.json`:
 
@@ -66,7 +66,7 @@ Press the Mod Settings button in **ModMenu** (Fabric) or the **Mods** list (NeoF
 
 ---
 
-## 📦 Datapack Support
+## Datapack Support
 
 Want to add QuickGlance support for modded containers or custom blocks? QuickGlance is fully datapack-driven. You can tag any block entity without writing any code:
 
@@ -78,7 +78,7 @@ For complete guides, JSON examples, and version-specific paths, check [DATAPACKS
 
 ---
 
-## 🛠️ Building from Source
+## Building from Source
 
 QuickGlance uses [Stonecutter](https://github.com/kikugie/stonecutter) to manage multiple Minecraft versions and loaders simultaneously.
 
@@ -102,6 +102,6 @@ Compiled jars will be generated in `build/libs/`.
 
 ---
 
-## 📄 License
+## License
 
 QuickGlance is licensed under the [GNU General Public License v3.0](LICENSE.txt).
