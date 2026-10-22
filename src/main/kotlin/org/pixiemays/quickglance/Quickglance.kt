@@ -7,11 +7,11 @@ import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents
 /*import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking
 *///? } elif >=1.20.5 {
-import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry
+/*import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking
-//? } else {
-/*import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs*/
+*///? } else {
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs
 //? }
 //? }
 
@@ -47,8 +47,8 @@ object Quickglance : ModInitializer {
         //? if >=26.1 {
         /*PayloadTypeRegistry.clientboundPlay().register(FurnaceSyncPayload.TYPE, FurnaceSyncPayload.CODEC)
         *///? } elif >=1.20.5 {
-        PayloadTypeRegistry.playS2C().register(FurnaceSyncPayload.TYPE, FurnaceSyncPayload.CODEC)
-        //? }
+        /*PayloadTypeRegistry.playS2C().register(FurnaceSyncPayload.TYPE, FurnaceSyncPayload.CODEC)
+        *///? }
 
         ServerTickEvents.END_SERVER_TICK.register { server ->
             QuickglanceCommon.tick(server)
@@ -154,11 +154,11 @@ object QuickglanceCommon {
     fun sendPayload(player: ServerPlayer, payload: FurnaceSyncPayload) {
         //? if fabric {
             //? if >=1.21 {
-            ServerPlayNetworking.send(player, payload)
-            //? } else {
-            /*val buf = PacketByteBufs.create()
+            /*ServerPlayNetworking.send(player, payload)
+            *///? } else {
+            val buf = PacketByteBufs.create()
             payload.write(buf)
-            ServerPlayNetworking.send(player, FurnaceSyncPayload.ID, buf)*/
+            ServerPlayNetworking.send(player, FurnaceSyncPayload.ID, buf)
             //? }
         //? } elif neoforge {
         /*PacketDistributor.sendToPlayer(player, payload)

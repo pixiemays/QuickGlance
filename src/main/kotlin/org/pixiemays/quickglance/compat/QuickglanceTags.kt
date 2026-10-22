@@ -11,12 +11,12 @@ import net.minecraft.world.level.block.Block
 
 object QuickglanceTags {
     //? if >=1.21 {
-    val FURNACE_LIKE: TagKey<Block> = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("quickglance", "furnace_like"))
+    /*val FURNACE_LIKE: TagKey<Block> = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("quickglance", "furnace_like"))
     val CAMPFIRE_LIKE: TagKey<Block> = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("quickglance", "campfire_like"))
     val ROW_LIKE: TagKey<Block> = TagKey.create(Registries.BLOCK, ResourceLocation.fromNamespaceAndPath("quickglance", "row_like"))
-    //? } else {
-    /*val FURNACE_LIKE: TagKey<Block> = TagKey.create(Registries.BLOCK, ResourceLocation("quickglance", "furnace_like"))
+    *///? } else {
+    val FURNACE_LIKE: TagKey<Block> = TagKey.create(Registries.BLOCK, ResourceLocation("quickglance", "furnace_like"))
     val CAMPFIRE_LIKE: TagKey<Block> = TagKey.create(Registries.BLOCK, ResourceLocation("quickglance", "campfire_like"))
-    val ROW_LIKE: TagKey<Block> = TagKey.create(Registries.BLOCK, ResourceLocation("quickglance", "row_like"))*/
+    val ROW_LIKE: TagKey<Block> = TagKey.create(Registries.BLOCK, ResourceLocation("quickglance", "row_like"))
     //? }
 }

@@ -3,7 +3,7 @@ plugins {
     kotlin("jvm") version "2.4.10" apply false
 }
 
-stonecutter active "1.21.1-fabric"
+stonecutter active "1.20.1-fabric"
 
 // See https://stonecutter.kikugie.dev/wiki/config/params
 stonecutter parameters {

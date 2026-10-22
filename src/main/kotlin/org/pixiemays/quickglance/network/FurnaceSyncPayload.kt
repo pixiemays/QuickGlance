@@ -2,12 +2,12 @@ package org.pixiemays.quickglance.network
 
 import net.minecraft.core.BlockPos
 //? if >=1.21 {
-import net.minecraft.network.RegistryFriendlyByteBuf
+/*import net.minecraft.network.RegistryFriendlyByteBuf
 import net.minecraft.network.codec.ByteBufCodecs
 import net.minecraft.network.codec.StreamCodec
 import net.minecraft.network.protocol.common.custom.CustomPacketPayload
-//? } else {
-/*import net.minecraft.network.FriendlyByteBuf*/
+*///? } else {
+import net.minecraft.network.FriendlyByteBuf
 //? }
 
 //? if >=26.1 {
@@ -24,8 +24,8 @@ data class FurnaceSyncPayload(
     val displayType: String,
     val items: List<ItemStack>
 ) //? if >=1.21 {
-: CustomPacketPayload
-//? }
+/*: CustomPacketPayload
+*///? }
 {
     // Convenience constructor for classic furnace slots (backwards compatibility)
     constructor(active: Boolean, pos: BlockPos, input: ItemStack, fuel: ItemStack, result: ItemStack) :
@@ -36,7 +36,7 @@ data class FurnaceSyncPayload(
     val result: ItemStack get() = items.getOrElse(2) { ItemStack.EMPTY }
 
 //? if >=1.21 {
-    override fun type(): CustomPacketPayload.Type<FurnaceSyncPayload> = TYPE
+    /*override fun type(): CustomPacketPayload.Type<FurnaceSyncPayload> = TYPE
 
     companion object {
         val ID: ResourceLocation = ResourceLocation.fromNamespaceAndPath("quickglance", "container_sync")
@@ -55,8 +55,8 @@ data class FurnaceSyncPayload(
                 ::FurnaceSyncPayload
             )
     }
-//? } else {
-    /*fun write(buf: FriendlyByteBuf) {
+*///? } else {
+    fun write(buf: FriendlyByteBuf) {
         buf.writeBoolean(active)
         buf.writeBlockPos(pos)
         buf.writeUtf(displayType)
@@ -83,6 +83,6 @@ data class FurnaceSyncPayload(
             }
             return FurnaceSyncPayload(active, pos, displayType, items)
         }
-    }*/
+    }
 //? }
 }

@@ -8,11 +8,11 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking
 /*import net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry
 import net.minecraft.resources.ResourceLocation
 *///? } elif >=1.21 {
+/*import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
+import net.minecraft.resources.ResourceLocation as ResourceLocation
+*///? } else {
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
 import net.minecraft.resources.ResourceLocation as ResourceLocation
-//? } else {
-/*import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback
-import net.minecraft.resources.ResourceLocation as ResourceLocation*/
 //? }
 //? }
 //? if neoforge {
@@ -31,13 +31,13 @@ class QuickglanceClient : ClientModInitializer {
 
     override fun onInitializeClient() {
         //? if >=1.21 {
-        ClientPlayNetworking.registerGlobalReceiver(FurnaceSyncPayload.TYPE) { payload, _ ->
+        /*ClientPlayNetworking.registerGlobalReceiver(FurnaceSyncPayload.TYPE) { payload, _ ->
             FurnaceClientCache.update(payload)
         }
-        //? } else {
-        /*ClientPlayNetworking.registerGlobalReceiver(FurnaceSyncPayload.ID) { _, _, buf, _ ->
+        *///? } else {
+        ClientPlayNetworking.registerGlobalReceiver(FurnaceSyncPayload.ID) { _, _, buf, _ ->
             FurnaceClientCache.update(FurnaceSyncPayload.read(buf))
-        }*/
+        }
         //? }
         MidnightConfig.init("quickglance", QuickglanceConfig::class.java)
 
