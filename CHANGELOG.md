@@ -17,9 +17,6 @@ All notable changes to this project will be documented in this file.
   - `CampfireContainerDisplay`: compact 44x44 2x2 layout.
   - `RowContainerDisplay`: dynamic width/height supporting single rows (1–9 slots) and wrapped grids (>9 slots).
 - **Configuration UI**: MidnightLib integration with ModMenu (Fabric) and Mods menu (NeoForge).
-- **Unit test suite**: JUnit 5 + Kotlin Test suite verifying cubic easing, 24-bit alpha bitmasks, panel dimensions, and raycast vectors.
-- **Developer CLI tool**: [`test-mod.ps1`](file:///c:/Users/mays/IdeaProjects/QuickGlance/test-mod.ps1) with `-Test`, `-BuildAll`, and `-RunClient` options.
-- **CI/CD pipeline**: GitHub Actions workflow for automated building and multi-platform publishing (Modrinth, CurseForge, GitHub Releases).
 - **Datapack documentation**: [`DATAPACKS.md`](file:///c:/Users/mays/IdeaProjects/QuickGlance/DATAPACKS.md) in English and Russian.
 
 ### Changed
