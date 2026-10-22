@@ -98,6 +98,7 @@ jobs:
           loaders: fabric,quilt
           game-versions: 26.3
           java: 25
+          environment: client | server
 
       - name: Publish to Modrinth & CurseForge (NeoForge 26.3)
         uses: Kir-Antipov/mc-publish@v3.3
@@ -111,6 +112,7 @@ jobs:
           loaders: neoforge
           game-versions: 26.3
           java: 25
+          environment: client | server
 
       - name: Publish to Modrinth & CurseForge (Fabric 1.21.1)
         uses: Kir-Antipov/mc-publish@v3.3
@@ -124,6 +126,7 @@ jobs:
           loaders: fabric,quilt
           game-versions: 1.21,1.21.1
           java: 21
+          environment: client | server
 
       - name: Publish to Modrinth & CurseForge (NeoForge 1.21.1)
         uses: Kir-Antipov/mc-publish@v3.3
@@ -137,6 +140,7 @@ jobs:
           loaders: neoforge
           game-versions: 1.21,1.21.1
           java: 21
+          environment: client | server
 
       - name: Publish to Modrinth & CurseForge (Fabric 1.20.1)
         uses: Kir-Antipov/mc-publish@v3.3
@@ -150,3 +154,4 @@ jobs:
           loaders: fabric,quilt
           game-versions: 1.20.1
           java: 17
+          environment: client | server
